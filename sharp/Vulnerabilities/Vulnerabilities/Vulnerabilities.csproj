@@ -1,0 +1,1027 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{05BE1C5B-EBC5-4BCA-B3DE-D43FAA882B4A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vulnerabilities</RootNamespace>
+    <AssemblyName>Vulnerabilities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <NuGetPackageImportStamp>907b9e08</NuGetPackageImportStamp>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.98.1\lib\net45\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.98.1\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.4\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Manage.aspx" />
+    <Content Include="Account\OpenAuthProviders.ascx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Account\Web.config" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Site.Master" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Vulnerabilities\Arbitrary File Creation\FileCreate.aspx" />
+    <Content Include="Vulnerabilities\Arbitrary File Deletion\Delete.aspx" />
+    <Content Include="Vulnerabilities\Arbitrary File Modification\OpenWrite.aspx" />
+    <Content Include="Vulnerabilities\Arbitrary File Reading\Execute.aspx" />
+    <Content Include="Vulnerabilities\Arbitrary File Reading\OpenRead.aspx" />
+    <Content Include="Vulnerabilities\Arbitrary File Reading\OpenText.aspx" />
+    <Content Include="Vulnerabilities\Arbitrary File Reading\ReadAllBytes.aspx" />
+    <Content Include="Vulnerabilities\Arbitrary File Reading\ReadAllLines.aspx" />
+    <Content Include="Vulnerabilities\Arbitrary File Reading\ReadAllText.aspx" />
+    <Content Include="Vulnerabilities\Arbitrary File Reading\StreamReader.aspx" />
+    <Content Include="Vulnerabilities\Arbitrary File Reading\TransmitFile.aspx" />
+    <Content Include="Vulnerabilities\Cookie Injecion\HttpCookie.aspx" />
+    <Content Include="Vulnerabilities\Cross-Site Scripting\AspxXss.aspx" />
+    <Content Include="Vulnerabilities\Cross-Site Scripting\Create.aspx" />
+    <Content Include="Vulnerabilities\Cross-Site Scripting\HtmlString.aspx" />
+    <Content Include="Vulnerabilities\Cross-Site Scripting\Raw.aspx" />
+    <Content Include="Vulnerabilities\Cross-Site Scripting\Text.aspx" />
+    <Content Include="Vulnerabilities\Cross-Site Scripting\Write.aspx" />
+    <Content Include="Vulnerabilities\Cross-Site Scripting\WritePost.aspx" />
+    <Content Include="Vulnerabilities\Cross-Site Scripting\Xss.aspx" />
+    <Content Include="Vulnerabilities\Deserialization\ObjectStateFormatterDeserialize.aspx" />
+    <Content Include="Vulnerabilities\DLL Injection\SqliteLoadExtension.aspx" />
+    <Content Include="Vulnerabilities\External Control\NewKeyValueConfigurationElement.aspx" />
+    <Content Include="Vulnerabilities\HTTP Response Splitting\Add.aspx" />
+    <Content Include="Vulnerabilities\HTTP Response Splitting\AddHeader.aspx" />
+    <Content Include="Vulnerabilities\HTTP Response Splitting\AppendHeader.aspx" />
+    <Content Include="Vulnerabilities\HTTP Response Splitting\HttpCookie.aspx" />
+    <Content Include="Vulnerabilities\LDAP Injection\DirectorySearcher.aspx" />
+    <Content Include="Vulnerabilities\Local File Inclusion\ResponseWriteFile.aspx" />
+    <Content Include="Vulnerabilities\Log Forging\IlogDebug.aspx" />
+    <Content Include="Vulnerabilities\Log Forging\IlogError.aspx" />
+    <Content Include="Vulnerabilities\Open Redirect\Add.aspx" />
+    <Content Include="Vulnerabilities\Open Redirect\AddHeader.aspx" />
+    <Content Include="Vulnerabilities\Open Redirect\AppendHeader.aspx" />
+    <Content Include="Vulnerabilities\Open Redirect\Redirect.aspx" />
+    <Content Include="Vulnerabilities\Open Redirect\RedirectPermanent.aspx" />
+    <Content Include="Vulnerabilities\Open Redirect\RedirectResult.aspx" />
+    <Content Include="Vulnerabilities\Resource Injection\Connect.aspx" />
+    <Content Include="Vulnerabilities\Resource Injection\DnsEndPoint.aspx" />
+    <Content Include="Vulnerabilities\Resource Injection\FileStream.aspx" />
+    <Content Include="Vulnerabilities\Resource Injection\IPEndPoint.aspx" />
+    <Content Include="Vulnerabilities\Resource Injection\IsolatedStoragefileStream.aspx" />
+    <Content Include="Vulnerabilities\Server-Side Request Forgery\TcpClientConnect.aspx" />
+    <Content Include="Vulnerabilities\Unrestricted File Upload\FileUpload.aspx" />
+    <Content Include="Vulnerabilities\Unrestricted File Upload\PostedFile.aspx" />
+    <Content Include="Vulnerabilities\XML External Entity\Create.aspx" />
+    <Content Include="Vulnerabilities\XML External Entity\Load.aspx" />
+    <Content Include="Vulnerabilities\XML External Entity\XmlTextReader.aspx" />
+    <Content Include="Vulnerabilities\XPath\XPathBinderBinderSelect.aspx" />
+    <Content Include="Vulnerabilities\XPath\XmlNodeSelectNodes.aspx" />
+    <Content Include="Vulnerabilities\XPath\XmlNodeSelectSingleNode.aspx" />
+    <Content Include="Vulnerabilities\XPath\XPathNavigatorCompile.aspx" />
+    <Content Include="Vulnerabilities\XPath\XPathBinderEval.aspx" />
+    <Content Include="Vulnerabilities\XPath\XPathNavigatorEvaluate.aspx" />
+    <Content Include="Vulnerabilities\XPath\ExpressionCompile.aspx" />
+    <Content Include="Vulnerabilities\XPath\XPathNavigatorMatches.aspx" />
+    <Content Include="Vulnerabilities\XPath\NavSelectSingleNode.aspx" />
+    <Content Include="Vulnerabilities\XPath\XPathNavigatorSelect.aspx" />
+    <Content Include="Vulnerabilities\XPath\XmlDocumentSelectNodes.aspx" />
+    <Content Include="Vulnerabilities\XPath\XmlDocumentSelectSingleNode.aspx" />
+    <Content Include="Vulnerabilities\XPath\TemplateControlXPath.aspx" />
+    <Content Include="Vulnerabilities\XPath\TemplateControlXPathSelect.aspx" />
+    <Content Include="Vulnerabilities\XPath\ExtensionsXPathSelectElement.aspx" />
+    <Content Include="Vulnerabilities\XPath\XPathNavigatorSelectSingleNode.aspx" />
+    <Content Include="Vulnerabilities\_Deserialization\FileDeserialization.aspx" />
+    <Content Include="Vulnerabilities\SQL Injection\OdbcCommand.aspx" />
+    <Content Include="Vulnerabilities\SQL Injection\OdbcDataAdapter.aspx" />
+    <Content Include="Vulnerabilities\SQL Injection\OleDbCommand.aspx" />
+    <Content Include="Vulnerabilities\SQL Injection\OleDbDataAdapter.aspx" />
+    <Content Include="Vulnerabilities\SQL Injection\OracleDataAdapter.aspx" />
+    <Content Include="Vulnerabilities\SQL Injection\SqlCeCommand.aspx" />
+    <Content Include="Vulnerabilities\SQL Injection\SqlCommand.aspx" />
+    <Content Include="Vulnerabilities\SQL Injection\SqlDataAdapter.aspx" />
+    <Content Include="Vulnerabilities\SQL Injection\SqlDataSource.aspx" />
+    <Content Include="Vulnerabilities\_File Opeartions\FileModification.aspx" />
+    <Content Include="Vulnerabilities\_File Opeartions\FileReading.aspx" />
+    <Content Include="Vulnerabilities\_File Opeartions\LocalFileInclusion.aspx" />
+    <Content Include="Vulnerabilities\_Injection\Ldap.aspx" />
+    <Content Include="Vulnerabilities\_Injection\Linq.aspx" />
+    <Content Include="Vulnerabilities\_Injection\Xpath.aspx" />
+    <Content Include="Vulnerabilities\_Injection\XxeString.aspx" />
+    <Content Include="Vulnerabilities\_Location\OpenRedirect.aspx" />
+    <Content Include="Vulnerabilities\_LogForging\ToFile.aspx" />
+    <Content Include="Vulnerabilities\_NoSQL\Regexp.aspx" />
+    <Content Include="Vulnerabilities\OS Commanding\_OSCommanding.aspx" />
+    <Content Include="Vulnerabilities\OS Commanding\ProcessStartInfo.aspx" />
+    <Content Include="Vulnerabilities\OS Commanding\Start.aspx" />
+    <Content Include="Vulnerabilities\_Remote Code Execution\CodeDom.aspx" />
+    <Content Include="Vulnerabilities\_Request Forgery\Csrf.aspx" />
+    <Content Include="Vulnerabilities\SQL Injection\Sqli.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Bundle.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Site.Mobile.Master" />
+    <Content Include="Vulnerabilities\Log Forging\log.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.designer.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\RegisterExternalLogin.aspx.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Creation\FileCreate.aspx.cs">
+      <DependentUpon>FileCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Creation\FileCreate.aspx.designer.cs">
+      <DependentUpon>FileCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Deletion\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Deletion\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Modification\OpenWrite.aspx.cs">
+      <DependentUpon>OpenWrite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Modification\OpenWrite.aspx.designer.cs">
+      <DependentUpon>OpenWrite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\Execute.aspx.cs">
+      <DependentUpon>Execute.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\Execute.aspx.designer.cs">
+      <DependentUpon>Execute.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\OpenRead.aspx.cs">
+      <DependentUpon>OpenRead.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\OpenRead.aspx.designer.cs">
+      <DependentUpon>OpenRead.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\OpenText.aspx.cs">
+      <DependentUpon>OpenText.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\OpenText.aspx.designer.cs">
+      <DependentUpon>OpenText.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\ReadAllBytes.aspx.cs">
+      <DependentUpon>ReadAllBytes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\ReadAllBytes.aspx.designer.cs">
+      <DependentUpon>ReadAllBytes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\ReadAllLines.aspx.cs">
+      <DependentUpon>ReadAllLines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\ReadAllLines.aspx.designer.cs">
+      <DependentUpon>ReadAllLines.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\ReadAllText.aspx.cs">
+      <DependentUpon>ReadAllText.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\ReadAllText.aspx.designer.cs">
+      <DependentUpon>ReadAllText.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\StreamReader.aspx.cs">
+      <DependentUpon>StreamReader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\StreamReader.aspx.designer.cs">
+      <DependentUpon>StreamReader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\TransmitFile.aspx.cs">
+      <DependentUpon>TransmitFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Arbitrary File Reading\TransmitFile.aspx.designer.cs">
+      <DependentUpon>TransmitFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cookie Injecion\HttpCookie.aspx.cs">
+      <DependentUpon>HttpCookie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cookie Injecion\HttpCookie.aspx.designer.cs">
+      <DependentUpon>HttpCookie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\AspxXss.aspx.cs">
+      <DependentUpon>AspxXss.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\AspxXss.aspx.designer.cs">
+      <DependentUpon>AspxXss.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\HtmlString.aspx.cs">
+      <DependentUpon>HtmlString.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\HtmlString.aspx.designer.cs">
+      <DependentUpon>HtmlString.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\Raw.aspx.cs">
+      <DependentUpon>Raw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\Raw.aspx.designer.cs">
+      <DependentUpon>Raw.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\Text.aspx.cs">
+      <DependentUpon>Text.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\Text.aspx.designer.cs">
+      <DependentUpon>Text.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\Write.aspx.cs">
+      <DependentUpon>Write.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\Write.aspx.designer.cs">
+      <DependentUpon>Write.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\WritePost.aspx.cs">
+      <DependentUpon>WritePost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\WritePost.aspx.designer.cs">
+      <DependentUpon>WritePost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\Xss.aspx.cs">
+      <DependentUpon>Xss.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Cross-Site Scripting\Xss.aspx.designer.cs">
+      <DependentUpon>Xss.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Deserialization\ObjectStateFormatterDeserialize.aspx.cs">
+      <DependentUpon>ObjectStateFormatterDeserialize.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Deserialization\ObjectStateFormatterDeserialize.aspx.designer.cs">
+      <DependentUpon>ObjectStateFormatterDeserialize.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\DLL Injection\SqliteLoadExtension.aspx.cs">
+      <DependentUpon>SqliteLoadExtension.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\DLL Injection\SqliteLoadExtension.aspx.designer.cs">
+      <DependentUpon>SqliteLoadExtension.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\External Control\NewKeyValueConfigurationElement.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>NewKeyValueConfigurationElement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\External Control\NewKeyValueConfigurationElement.aspx.designer.cs">
+      <DependentUpon>NewKeyValueConfigurationElement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\HTTP Response Splitting\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\HTTP Response Splitting\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\HTTP Response Splitting\AddHeader.aspx.cs">
+      <DependentUpon>AddHeader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\HTTP Response Splitting\AddHeader.aspx.designer.cs">
+      <DependentUpon>AddHeader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\HTTP Response Splitting\AppendHeader.aspx.cs">
+      <DependentUpon>AppendHeader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\HTTP Response Splitting\AppendHeader.aspx.designer.cs">
+      <DependentUpon>AppendHeader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\HTTP Response Splitting\HttpCookie.aspx.cs">
+      <DependentUpon>HttpCookie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\HTTP Response Splitting\HttpCookie.aspx.designer.cs">
+      <DependentUpon>HttpCookie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\LDAP Injection\DirectorySearcher.aspx.cs">
+      <DependentUpon>DirectorySearcher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\LDAP Injection\DirectorySearcher.aspx.designer.cs">
+      <DependentUpon>DirectorySearcher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Local File Inclusion\ResponseWriteFile.aspx.cs">
+      <DependentUpon>ResponseWriteFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Local File Inclusion\ResponseWriteFile.aspx.designer.cs">
+      <DependentUpon>ResponseWriteFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Log Forging\IlogDebug.aspx.cs">
+      <DependentUpon>IlogDebug.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Log Forging\IlogDebug.aspx.designer.cs">
+      <DependentUpon>IlogDebug.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Log Forging\IlogError.aspx.cs">
+      <DependentUpon>IlogError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Log Forging\IlogError.aspx.designer.cs">
+      <DependentUpon>IlogError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Open Redirect\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Open Redirect\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Open Redirect\AddHeader.aspx.cs">
+      <DependentUpon>AddHeader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Open Redirect\AddHeader.aspx.designer.cs">
+      <DependentUpon>AddHeader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Open Redirect\AppendHeader.aspx.cs">
+      <DependentUpon>AppendHeader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Open Redirect\AppendHeader.aspx.designer.cs">
+      <DependentUpon>AppendHeader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Open Redirect\Redirect.aspx.cs">
+      <DependentUpon>Redirect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Open Redirect\Redirect.aspx.designer.cs">
+      <DependentUpon>Redirect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Open Redirect\RedirectPermanent.aspx.cs">
+      <DependentUpon>RedirectPermanent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Open Redirect\RedirectPermanent.aspx.designer.cs">
+      <DependentUpon>RedirectPermanent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Open Redirect\RedirectResult.aspx.cs">
+      <DependentUpon>RedirectResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Open Redirect\RedirectResult.aspx.designer.cs">
+      <DependentUpon>RedirectResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Resource Injection\Connect.aspx.cs">
+      <DependentUpon>Connect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Resource Injection\Connect.aspx.designer.cs">
+      <DependentUpon>Connect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Resource Injection\DnsEndPoint.aspx.cs">
+      <DependentUpon>DnsEndPoint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Resource Injection\DnsEndPoint.aspx.designer.cs">
+      <DependentUpon>DnsEndPoint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Resource Injection\FileStream.aspx.cs">
+      <DependentUpon>FileStream.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Resource Injection\FileStream.aspx.designer.cs">
+      <DependentUpon>FileStream.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Resource Injection\IPEndPoint.aspx.cs">
+      <DependentUpon>IPEndPoint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Resource Injection\IPEndPoint.aspx.designer.cs">
+      <DependentUpon>IPEndPoint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Resource Injection\IsolatedStoragefileStream.aspx.cs">
+      <DependentUpon>IsolatedStoragefileStream.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Resource Injection\IsolatedStoragefileStream.aspx.designer.cs">
+      <DependentUpon>IsolatedStoragefileStream.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Server-Side Request Forgery\TcpClientConnect.aspx.cs">
+      <DependentUpon>TcpClientConnect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Server-Side Request Forgery\TcpClientConnect.aspx.designer.cs">
+      <DependentUpon>TcpClientConnect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Unrestricted File Upload\FileUpload.aspx.cs">
+      <DependentUpon>FileUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Unrestricted File Upload\FileUpload.aspx.designer.cs">
+      <DependentUpon>FileUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\Unrestricted File Upload\PostedFile.aspx.cs">
+      <DependentUpon>PostedFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\Unrestricted File Upload\PostedFile.aspx.designer.cs">
+      <DependentUpon>PostedFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XML External Entity\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XML External Entity\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XML External Entity\Load.aspx.cs">
+      <DependentUpon>Load.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XML External Entity\Load.aspx.designer.cs">
+      <DependentUpon>Load.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XML External Entity\XmlTextReader.aspx.cs">
+      <DependentUpon>XmlTextReader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XML External Entity\XmlTextReader.aspx.designer.cs">
+      <DependentUpon>XmlTextReader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XPathBinderBinderSelect.aspx.cs">
+      <DependentUpon>XPathBinderBinderSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XPathBinderBinderSelect.aspx.designer.cs">
+      <DependentUpon>XPathBinderBinderSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XmlNodeSelectNodes.aspx.cs">
+      <DependentUpon>XmlNodeSelectNodes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XmlNodeSelectNodes.aspx.designer.cs">
+      <DependentUpon>XmlNodeSelectNodes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XmlNodeSelectSingleNode.aspx.cs">
+      <DependentUpon>XmlNodeSelectSingleNode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XmlNodeSelectSingleNode.aspx.designer.cs">
+      <DependentUpon>XmlNodeSelectSingleNode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XPathNavigatorCompile.aspx.cs">
+      <DependentUpon>XPathNavigatorCompile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XPathNavigatorCompile.aspx.designer.cs">
+      <DependentUpon>XPathNavigatorCompile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XPathBinderEval.aspx.cs">
+      <DependentUpon>XPathBinderEval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XPathBinderEval.aspx.designer.cs">
+      <DependentUpon>XPathBinderEval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XPathNavigatorEvaluate.aspx.cs">
+      <DependentUpon>XPathNavigatorEvaluate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XPathNavigatorEvaluate.aspx.designer.cs">
+      <DependentUpon>XPathNavigatorEvaluate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\ExpressionCompile.aspx.cs">
+      <DependentUpon>ExpressionCompile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\ExpressionCompile.aspx.designer.cs">
+      <DependentUpon>ExpressionCompile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XPathNavigatorMatches.aspx.cs">
+      <DependentUpon>XPathNavigatorMatches.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XPathNavigatorMatches.aspx.designer.cs">
+      <DependentUpon>XPathNavigatorMatches.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\NavSelectSingleNode.aspx.cs">
+      <DependentUpon>NavSelectSingleNode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\NavSelectSingleNode.aspx.designer.cs">
+      <DependentUpon>NavSelectSingleNode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XPathNavigatorSelect.aspx.cs">
+      <DependentUpon>XPathNavigatorSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XPathNavigatorSelect.aspx.designer.cs">
+      <DependentUpon>XPathNavigatorSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XmlDocumentSelectNodes.aspx.cs">
+      <DependentUpon>XmlDocumentSelectNodes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XmlDocumentSelectNodes.aspx.designer.cs">
+      <DependentUpon>XmlDocumentSelectNodes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XmlDocumentSelectSingleNode.aspx.cs">
+      <DependentUpon>XmlDocumentSelectSingleNode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XmlDocumentSelectSingleNode.aspx.designer.cs">
+      <DependentUpon>XmlDocumentSelectSingleNode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\TemplateControlXPath.aspx.cs">
+      <DependentUpon>TemplateControlXPath.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\TemplateControlXPath.aspx.designer.cs">
+      <DependentUpon>TemplateControlXPath.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\TemplateControlXPathSelect.aspx.cs">
+      <DependentUpon>TemplateControlXPathSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\TemplateControlXPathSelect.aspx.designer.cs">
+      <DependentUpon>TemplateControlXPathSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\ExtensionsXPathSelectElement.aspx.cs">
+      <DependentUpon>ExtensionsXPathSelectElement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\ExtensionsXPathSelectElement.aspx.designer.cs">
+      <DependentUpon>ExtensionsXPathSelectElement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XPathNavigatorSelectSingleNode.aspx.cs">
+      <DependentUpon>XPathNavigatorSelectSingleNode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\XPath\XPathNavigatorSelectSingleNode.aspx.designer.cs">
+      <DependentUpon>XPathNavigatorSelectSingleNode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Deserialization\FileDeserialization.aspx.cs">
+      <DependentUpon>FileDeserialization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Deserialization\FileDeserialization.aspx.designer.cs">
+      <DependentUpon>FileDeserialization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\OdbcCommand.aspx.cs">
+      <DependentUpon>OdbcCommand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\OdbcCommand.aspx.designer.cs">
+      <DependentUpon>OdbcCommand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\OdbcDataAdapter.aspx.cs">
+      <DependentUpon>OdbcDataAdapter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\OdbcDataAdapter.aspx.designer.cs">
+      <DependentUpon>OdbcDataAdapter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\OleDbCommand.aspx.cs">
+      <DependentUpon>OleDbCommand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\OleDbCommand.aspx.designer.cs">
+      <DependentUpon>OleDbCommand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\OleDbDataAdapter.aspx.cs">
+      <DependentUpon>OleDbDataAdapter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\OleDbDataAdapter.aspx.designer.cs">
+      <DependentUpon>OleDbDataAdapter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\OracleDataAdapter.aspx.cs">
+      <DependentUpon>OracleDataAdapter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\OracleDataAdapter.aspx.designer.cs">
+      <DependentUpon>OracleDataAdapter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\SqlCeCommand.aspx.cs">
+      <DependentUpon>SqlCeCommand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\SqlCeCommand.aspx.designer.cs">
+      <DependentUpon>SqlCeCommand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\SqlCommand.aspx.cs">
+      <DependentUpon>SqlCommand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\SqlCommand.aspx.designer.cs">
+      <DependentUpon>SqlCommand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\SqlDataAdapter.aspx.cs">
+      <DependentUpon>SqlDataAdapter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\SqlDataAdapter.aspx.designer.cs">
+      <DependentUpon>SqlDataAdapter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\SqlDataSource.aspx.cs">
+      <DependentUpon>SqlDataSource.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\SqlDataSource.aspx.designer.cs">
+      <DependentUpon>SqlDataSource.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\_File Opeartions\FileModification.aspx.cs">
+      <DependentUpon>FileModification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\_File Opeartions\FileModification.aspx.designer.cs">
+      <DependentUpon>FileModification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\_File Opeartions\FileReading.aspx.cs">
+      <DependentUpon>FileReading.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\_File Opeartions\FileReading.aspx.designer.cs">
+      <DependentUpon>FileReading.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\_File Opeartions\LocalFileInclusion.aspx.cs">
+      <DependentUpon>LocalFileInclusion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\_File Opeartions\LocalFileInclusion.aspx.designer.cs">
+      <DependentUpon>LocalFileInclusion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Injection\Ldap.aspx.cs">
+      <DependentUpon>Ldap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Injection\Ldap.aspx.designer.cs">
+      <DependentUpon>Ldap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Injection\Linq.aspx.cs">
+      <DependentUpon>Linq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Injection\Linq.aspx.designer.cs">
+      <DependentUpon>Linq.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Injection\Xpath.aspx.cs">
+      <DependentUpon>Xpath.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Injection\Xpath.aspx.designer.cs">
+      <DependentUpon>Xpath.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Injection\XxeString.aspx.cs">
+      <DependentUpon>XxeString.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Injection\XxeString.aspx.designer.cs">
+      <DependentUpon>XxeString.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Location\OpenRedirect.aspx.cs">
+      <DependentUpon>OpenRedirect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Location\OpenRedirect.aspx.designer.cs">
+      <DependentUpon>OpenRedirect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\_LogForging\ToFile.aspx.cs">
+      <DependentUpon>ToFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\_LogForging\ToFile.aspx.designer.cs">
+      <DependentUpon>ToFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\_NoSQL\Regexp.aspx.cs">
+      <DependentUpon>Regexp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\_NoSQL\Regexp.aspx.designer.cs">
+      <DependentUpon>Regexp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\OS Commanding\_OSCommanding.aspx.cs">
+      <DependentUpon>_OSCommanding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\OS Commanding\_OSCommanding.aspx.designer.cs">
+      <DependentUpon>_OSCommanding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\OS Commanding\ProcessStartInfo.aspx.cs">
+      <DependentUpon>ProcessStartInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\OS Commanding\ProcessStartInfo.aspx.designer.cs">
+      <DependentUpon>ProcessStartInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\OS Commanding\Start.aspx.cs">
+      <DependentUpon>Start.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\OS Commanding\Start.aspx.designer.cs">
+      <DependentUpon>Start.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Remote Code Execution\CodeDom.aspx.cs">
+      <DependentUpon>CodeDom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Remote Code Execution\CodeDom.aspx.designer.cs">
+      <DependentUpon>CodeDom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Request Forgery\Csrf.aspx.cs">
+      <DependentUpon>Csrf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\_Request Forgery\Csrf.aspx.designer.cs">
+      <DependentUpon>Csrf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\Sqli.aspx.cs">
+      <DependentUpon>Sqli.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vulnerabilities\SQL Injection\Sqli.aspx.designer.cs">
+      <DependentUpon>Sqli.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>10247</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:10247/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
